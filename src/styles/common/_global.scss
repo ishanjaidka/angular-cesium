@@ -1,0 +1,60 @@
+@use 'sass:math';
+@import "../common/variables";
+
+mat-table {
+    .New {
+        background: $informationBackgroundColour !important;
+    }
+
+    .Proposed {
+        background: $warningBackgroundColour !important;
+    }
+
+    .Booked {
+        background: $warningBackgroundColour !important;
+    }
+
+    .Canceled {
+        background: $dangerBackgroundColour !important;
+    }
+
+    .Reject {
+        background: $dangerBackgroundColour !important;
+    }
+
+    .Withdrawn {
+        background: $dangerBackgroundColour !important;
+    }
+
+    .Dispute {
+        background: $dangerBackgroundColour !important;
+    }
+
+    .Completed {
+        background: $successBackgroundColour !important;
+    }
+
+    .Confirmed {
+        background: $successBackgroundColour !important;
+    }
+
+    .Verify {
+        background: $successBackgroundColour !important;
+    }
+}
+
+.input-error {
+    color: $dangerBackgroundColour;
+    font-size: $font-size;
+    font-family: 'Roboto';
+    margin-top: math.div($margin-base, 4);
+    padding-left: 0;
+    margin-bottom: 0;
+    font-weight: $font-weight-400;
+
+    li {
+        list-style: none;
+        font-size: $font-size;
+        line-height: $line-height;
+    }
+}

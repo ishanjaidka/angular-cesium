@@ -1,0 +1,52 @@
+@use '@angular/material' as mat;
+@import "../../common/variables";
+
+$custom-typography: mat.define-typography-config($font-family: $font-face,
+    /* h1, .mat-h1, .mat-headline */
+    $headline-1: mat.define-typography-level($font-size*3, 1.2, 300),
+    /* h2, .mat-h2, .mat-title */
+    $headline-2: mat.define-typography-level($font-size*2, 1.2, 400),
+    /* h3, .mat-h3, .mat-subheading-2 */
+    $headline-3: mat.define-typography-level($font-size*1.8, 1.4, 400),
+    /* h4, .mat-h4, .mat-subheading-1 */
+    $headline-4: mat.define-typography-level($font-size*1.8, 1.4, 300),
+    /* body, .mat-body, .mat-body-1 */
+    $body-2: mat.define-typography-level($font-size*1.8, 1.4, 600),
+    /* body strong, .mat-body-strong, .mat-body-2 */
+    $body-1: mat.define-typography-level($font-size, 1.4, 400),
+    /* small, .mat-small, .mat-caption */
+    $caption: mat.define-typography-level(1.2rem, 1.65, 400),
+    $button: mat.define-typography-level(1.4rem, 1.4rem, 600));
+
+h2,
+.mat-h2,
+.mat-title {
+  color: $primaryColour;
+}
+
+h5,
+.mat-h5,
+.mat-subtitle-2 {
+  margin: 0 0 1rem;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: 600;
+}
+
+h6,
+.mat-h6,
+.mat-subtitle-1 {
+  margin: 0;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+small {
+  font-size: 1.2rem;
+  line-height: 1.65;
+}
+
+a {
+  text-decoration: none;
+}

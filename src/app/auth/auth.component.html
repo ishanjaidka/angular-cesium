@@ -1,0 +1,16 @@
+<div class="auth__container">
+  <div class="auth__header-mobile">
+    <a routerLink="/auth"><img class="logo" src="assets/logo/logo.jpg"></a>
+  </div>
+  <div class="auth__inner">
+    <div class="auth__left">
+      <div class="overlay">
+        <img src="assets/logo/logo.jpg" class="logo" routerLink="/">
+        <p>Copyright © {{'footer' | translate}} Australia. All rights reserved</p>
+      </div>
+    </div>
+    <div class="auth__route-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

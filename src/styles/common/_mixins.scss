@@ -1,0 +1,150 @@
+@use "sass:math";
+@import "variables";
+@import "functions";
+//em base in media queries comes from the user's setting (which is the 16px browser default if not changed by the user).
+$browserStandardFontSize: 1.6;
+$smallPhoneWidth: math.div(37.6rem, strip-unit($browserStandardFontSize)); // 376px
+$phoneWidth: math.div(39.8rem, strip-unit($browserStandardFontSize)); // 398px
+$tabletMaxWidth: math.div(76.7rem, strip-unit($browserStandardFontSize)); // 767px
+$phoneMaxWidth: math.div(50rem, strip-unit($browserStandardFontSize)); // 500px
+$tabletWidth: math.div(76.8rem, strip-unit($browserStandardFontSize)); // 768px
+$laptopWidth: math.div(102.4rem, strip-unit($browserStandardFontSize)); // 1024px
+$laptopMinWidth: math.div(102.4rem, strip-unit($browserStandardFontSize)); // 1024px
+$laptopMaxWidth: math.div(126.4rem, strip-unit($browserStandardFontSize)); // 1264px
+$desktopWidth: math.div(144rem, strip-unit($browserStandardFontSize)); // 1440px
+
+@mixin respondTo($device) {
+  @if $device==phone {
+    @media (max-width: $phoneWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==smallPhone {
+    @media (max-width: $smallPhoneWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==phoneMax {
+    @media (max-width: $phoneMaxWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==tablet {
+    @media (min-width: $tabletWidth) {
+      @content;
+    }
+  }
+
+  @else if $device ==tabletMax {
+    @media (max-width: $tabletMaxWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==tabletMaxWidth {
+    @media (max-width: $tabletWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==laptop {
+    @media (min-width: $laptopWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==laptopMinWidth {
+    @media (max-width: $laptopMinWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==laptopMaxWidth {
+    @media (max-width: $laptopMaxWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==desktop {
+    @media (min-width: $desktopWidth) {
+      @content;
+    }
+  }
+
+  @else if $device==desktopMaxWidth {
+    @media (max-width: $desktopWidth) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "respondTo mixin supports: tablet, laptop, desktop";
+  }
+}
+
+@mixin container() {
+  max-width: $maxContentWidth;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1.5rem 0 0 0;
+
+  @include respondTo(tablet) {}
+}
+
+@mixin circle($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+@mixin mat-icon-size($size) {
+  width: $size;
+  height: $size;
+  font-size: $size;
+  line-height: $size;
+}
+
+@mixin mat-icon-button-size($size) {
+  width: $size;
+  height: $size;
+  line-height: $size;
+
+  .mat-icon {
+    @include mat-icon-size($size * 0.6);
+  }
+}
+
+@mixin mutedFont() {
+  color: $mutedFontColour;
+}
+
+
+/*
+  This mixin can be used to set the object-fit:
+  @include object-fit(contain);
+  or object-fit and object-position:
+  @include object-fit(cover, top);
+*/
+
+@mixin object-fit($fit: fill, $position: null) {
+  -o-object-fit: $fit;
+  object-fit: $fit;
+
+  @if $position {
+    -o-object-position: $position;
+    object-position: $position;
+    font-family: 'object-fit: #{$fit}; object-position: #{$position}';
+  }
+
+  @else {
+    font-family: 'object-fit: #{$fit}';
+  }
+}

@@ -1,0 +1,9 @@
+<ng-container *ngIf="currentDashboardView === dashboardEnum.MapView">
+<div appCesium></div>
+</ng-container>
+<app-dashboard-legends></app-dashboard-legends>
+<ng-container *ngIf="currentDashboardView === dashboardEnum.NormalView">
+<h1>
+    Normal Dashboard comes here!
+</h1>
+</ng-container>

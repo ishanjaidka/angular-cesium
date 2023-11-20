@@ -1,0 +1,62 @@
+@import "../../styles/common/variables";
+@import "../../styles/common/mixins";
+
+.error-page-container {
+  margin: 60px auto;
+  max-width: 1440px;
+  width: calc(100% - 96px);
+  display: flex;
+  align-items: flex-start;
+
+  @include respondTo(laptopMinWidth) {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 64px);
+  }
+
+  img {
+    width: 40%;
+    height: auto;
+    object-fit: contain;
+
+    @include respondTo(laptopMinWidth) {
+      width: 60%;
+      //position: absolute;
+      //opacity: .6;
+    }
+  }
+
+  .text {
+    padding-top: 96px;
+    z-index: 2;
+
+    h1 {
+      color: $fontColour;
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    p {
+      color: $fontColour;
+      font-size: 20px;
+    }
+  }
+
+  @include respondTo(laptopMinWidth) {
+    .text {
+      padding-top: 0;
+      text-align: center;
+
+      h1 {
+        font-size: 22px;
+      }
+
+      p {
+        font-size: 16px;
+      }
+    }
+
+  }
+
+}

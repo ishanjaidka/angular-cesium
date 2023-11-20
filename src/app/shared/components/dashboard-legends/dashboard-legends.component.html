@@ -1,0 +1,9 @@
+<div class="dashboard-legends">
+    <mat-radio-group
+        aria-labelledby="Dashboard View"
+        class="dashboard-view-radio-group"
+        [(ngModel)]="currentDashboardView"
+        (ngModelChange)="onDashboardViewChanged()">
+        <mat-radio-button *ngFor="let dashboardView of dashboardViews" class="dashboard-view-radio-button" [value]="dashboardView">{{dashboardView}}</mat-radio-button>
+    </mat-radio-group>
+</div>

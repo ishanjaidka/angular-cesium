@@ -1,0 +1,13 @@
+@use 'sass:math';
+@import "../imports";
+
+.error-message__container {
+    border: 1px solid $dangerBackgroundColour;
+    background: $dangerBackgroundColour;
+    padding: $padding-base;
+    width: $full-width;
+    color: $dangerColour;
+    border-radius: math.div($border-radius-base, 2);
+    overflow-wrap: break-word;
+    margin-bottom: $margin-base * 1.5;
+}

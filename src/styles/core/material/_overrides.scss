@@ -1,0 +1,16 @@
+@use "sass:math";
+@import "../../common/variables";
+
+.mat-mdc-radio-button .mdc-form-field {
+    align-items: baseline;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: math.div($padding-base, 2);
+}

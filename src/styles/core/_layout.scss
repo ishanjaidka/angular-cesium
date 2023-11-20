@@ -1,0 +1,6 @@
+@import "../common/variables";
+@import "../common/mixins";
+
+.container {
+  @include container();
+}

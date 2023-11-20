@@ -1,0 +1,16 @@
+@import "../../../../styles/imports";
+
+.dashboard-legends {
+    position: fixed;
+    bottom: 2rem;
+    z-index: 2;
+    right: 0;
+    padding: 1rem;
+    background: $backgroundColour;
+    opacity: 0.5;
+
+    .dashboard-view-radio-group {
+        display: flex;
+        flex-direction: column;
+    }
+}

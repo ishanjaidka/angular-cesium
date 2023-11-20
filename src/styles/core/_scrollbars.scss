@@ -1,0 +1,19 @@
+@import "../common/variables";
+
+::-webkit-scrollbar {
+  width: 0.5em;
+  height: 0.5rem;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $backgroundColour;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $borderColour;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}

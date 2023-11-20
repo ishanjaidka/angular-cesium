@@ -1,0 +1,67 @@
+
+<div class="login__container">
+  <div class="login__inner" [ngClass]="{'two__factor__form' : twoFactorAuthenticationEnabled}">
+    <ng-container *ngIf="!twoFactorAuthenticationEnabled">
+      <h1>Log in</h1>
+      <div *ngIf="error" color="danger" class="error-message__container">{{error}}</div>
+      <form [formGroup]="form" (ngSubmit)="onSubmit(form.value, form.valid)">
+
+        <div class="form-group">
+          <div class="input__wrapper">
+            <label>Email address</label>
+            <input placeholder="example@jaidka.com.au" formControlName="email" type="email" autocomplete="on">
+          </div>
+          <ul class="input-error" *ngIf="submitted && f['email'].errors">
+            <li *ngIf="f['email'].errors['required']">Please enter email</li>
+            <li *ngIf="f['email'].errors['pattern']">Please enter valid email address</li>
+          </ul>
+        </div>
+
+        <div class="form-group">
+          <div class="input__wrapper">
+            <label>Password</label>
+            <input placeholder="Your password" formControlName="password" type="password">
+          </div>
+          <ul class="input-error" *ngIf="submitted && f['password'].errors">
+            <li *ngIf="f['password'].errors['required']">Password is required</li>
+          </ul>
+        </div>
+        <a href="javascript:void(0)" class="forgotPassword" routerLink="/auth/forgot-password">Forgot password</a>
+        <button mat-raised-button color="primary" type="submit" class="login" [ngClass]="{'disabled': isSubmitting}" matRipple>
+          <mat-spinner *ngIf="isSubmitting" diameter="20"></mat-spinner>
+          <ng-container *ngIf="!isSubmitting">Log in</ng-container>
+        </button>
+      </form>
+      <div class="create-account">
+        <a href="javascript:void(0)" routerLink="/auth/signup"><span>Don't have an account? </span></a>
+      </div>
+    </ng-container>
+    <!-- Two-factor authentication -->
+    <ng-container *ngIf="twoFactorAuthenticationEnabled">
+      <h2>Two-factor authentication</h2>
+      <mat-label>Enter the verification code sent to your mobile phone.</mat-label>
+      <br>
+      <span class="newInputCodeComponent">
+              <span class="newInputCode">
+                <mat-icon class="smartphoneIcon">phone_android</mat-icon>
+                <!-- <code-input [initialFocusField]="0"
+                            [isFocusingOnLastByClickIfFilled]="true"
+                            [isCodeHidden]="false"
+                            [isNonDigitsCode]="false"
+                            [codeLength]="6"
+                            (codeChanged)="onCodeChanged($event)"
+                            (codeCompleted)="onCodeCompleted($event)">
+                </code-input> -->
+              </span>
+              <mat-error class="codeSubmissionError" *ngIf="error">{{error}}</mat-error>
+              <label [class.buttonSpinner]="resendCode" (click)="resendVerificationCode()">Re-send code</label>
+              <br>
+              <button mat-raised-button class="login" color="primary"
+                      [class.buttonSpinner]="isSubmittingAuthenticationCode"
+                      (click)="onSubmitAuthenticationCode({code: twoFactorForm.get('code')!.value}, true)">Submit</button>
+            </span>
+    </ng-container>
+  </div>
+
+  <!--    </div>-->
+</div>

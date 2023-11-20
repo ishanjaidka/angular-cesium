@@ -1,0 +1,33 @@
+@import "../imports";
+
+
+.cdk-overlay-pane {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
+  mat-dialog-container {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    .mat-button,
+    .mat-raised-button {
+      .mat-button-wrapper {
+        display: block;
+      }
+    }
+  }
+
+  .mat-dialog-content {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+
+    /* Firefox */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+}

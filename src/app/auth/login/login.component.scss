@@ -1,0 +1,239 @@
+@use '@angular/material' as mat;
+@import "../../../styles/imports";
+
+.login__container {
+    display: flex;
+    align-items: stretch;
+    height: 100vh;
+    min-height: 600px;
+
+    @include respondTo(laptopMinWidth) {
+        height: calc(100vh - 60px);
+    }
+
+    .login__inner {
+        height: 100%;
+        width: calc($full-width - 96px);
+        max-width: 400px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+
+        @include respondTo(laptopMinWidth) {
+            width: calc($full-width - 32px);
+            justify-content: flex-start;
+            padding-top: 60px;
+        }
+
+        h1 {
+            align-self: flex-start;
+            padding: 0 0 $padding-base 0;
+        }
+
+        form {
+            width: $full-width;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+
+
+            .form-group {
+                width: $full-width;
+                margin-bottom: $margin-base * 0.5;
+
+                .input__wrapper {
+                    input {
+                        width: $full-width;
+                    }
+                }
+            }
+
+
+            .forgotPassword {
+                color: $darkAccentColour;
+                font-size: 14px;
+                font-weight: $font-weight-600;
+                align-self: flex-end;
+                margin-top: $margin-base * 1.5;
+                margin-bottom: $margin-base * 1.5;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .login {
+                font-weight: $font-weight-600;
+                padding: $padding-base * 0.75 0;
+                width: $full-width;
+                border-radius: 6px;
+                outline: none;
+                border: none;
+                transition: all .2s ease-in-out;
+
+                &.disabled {
+                    opacity: .6;
+                }
+
+            }
+        }
+
+        .create-account {
+            margin-top: $margin-base * 1.5;
+            width: $full-width;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: $font-size;
+
+            span {
+                color: #3c475b;
+                font-weight: $font-weight-600;
+            }
+
+            button {
+                color: $darkAccentColour;
+                font-weight: $font-weight-600;
+                outline: none;
+                border: none;
+                margin-left: $margin-base * 0.25;
+                cursor: pointer;
+                background: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+        }
+
+        &.two__factor__form {
+            align-items: flex-start;
+
+            .webForm {
+                align-items: flex-start;
+
+                .smartphoneIcon {
+                    color: $primaryColour;
+                }
+
+                ::ng-deep {
+                    .mat-form-field-flex {
+                        align-items: flex-end;
+                    }
+
+                    .mat-form-field-prefix {
+                        margin-left: -$margin-base * 0.5;
+                    }
+
+                    button {
+                        span {
+                            display: block;
+                        }
+                    }
+                }
+
+                .login {
+                    line-height: 19.6px;
+                    border-radius: $border-radius-base * 4 !important;
+                }
+
+                .resendCodeAndSpinner {
+                    display: flex;
+                    width: $full-width;
+
+                    mat-spinner {
+                        margin-top: $margin-base * 1.5;
+                        margin-bottom: $margin-base * 1.5
+                    }
+                }
+            }
+        }
+    }
+
+    //}
+}
+
+@media (max-width: 960px) {
+    .login__container {
+        .leftImage {
+            display: none;
+        }
+
+        .rightForm {
+            max-width: $full-width;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .login__container {
+
+        .rightForm {
+            .rightForm__inner {
+                width: calc($full-width - 48px);
+            }
+        }
+    }
+}
+
+// new input for authentication
+.newInputCodeComponent {
+    .newInputCode {
+        display: flex;
+        align-items: center;
+        margin: ($margin-base * 2) 0 ($margin-base * 2) 0;
+        border-bottom: 1px solid $borderColour;
+        padding-bottom: $padding-base;
+
+        .smartphoneIcon {
+            color: $primaryColour;
+        }
+    }
+
+    .countDownLabel {
+        float: right;
+    }
+
+    label {
+        cursor: pointer;
+        margin-bottom: $margin-base * 2;
+        color: $primaryColour;
+
+        &:hover {
+            opacity: 0.8;
+            text-decoration: underline;
+        }
+
+        &.disable {
+            color: $disabledToggleColor;
+            cursor: none;
+            opacity: 0.7;
+        }
+    }
+
+    .login {
+        width: 100%;
+        border-radius: $border-radius-base * 4 !important;
+        font-weight: $font-weight-600;
+        outline: none;
+        border: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+
+        ::ng-deep {
+            span {
+                display: block;
+            }
+        }
+    }
+
+    mat-error {
+        text-align: center;
+    }
+}

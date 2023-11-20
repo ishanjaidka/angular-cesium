@@ -1,0 +1,18 @@
+@use 'sass:math';
+@import "../imports";
+
+input {
+    height: $input-height-base * 1.5;
+    border-radius: math.div($border-radius-base, 2);
+    border: 1px solid $primaryColour;
+    font-size: $font-size * 1.25;
+
+    ::-webkit-input-placeholder {
+        line-height: normal;
+    }
+
+    &:focus,
+    &:focus-visible {
+        outline-color: $primaryColour;
+    }
+}
